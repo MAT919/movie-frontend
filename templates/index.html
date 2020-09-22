@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <title>Yourflix</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">Yourflix</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">About Us</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Contact Us</a>
+        </li>
+      </ul>
+      <div class="mx-2">
+        <!-- Button trigger modal -->
+        {% if user.is_authenticated %}
+        <!-- <button type="button" class="btn btn-danger">
+          log out
+        </button> -->
+        <a href='/logout' class="btn btn-danger">Log out</a>
+
+        {% else %}
+        <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#loginmodal">
+          log in
+        </button>
+        <!-- Button trigger modal -->
+        <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#signupmodal">
+          sign up
+        </button>
+        {% endif %}
+
+
+        <!--loginModal-->
+        <div class="modal fade" id="loginmodal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+          aria-labelledby="loginmodal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="loginmodal">Sign up to Yourflix</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="login" method="POST">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">User name</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                      placeholder="Choose username" name="username">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name='password'>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">log in</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- signupModal -->
+        <div class="modal fade" id="signupmodal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+          aria-labelledby="signupmodal" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="signupmodal">Sign up to Yourflix</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form action="signup" method="POST">
+                  {% csrf_token %}
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">User name</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                      placeholder="Choose username" name="username">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                      placeholder="Enter your email" name="email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                      else.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name='password1'>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Confirm Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name='password2'>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Sign up</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+
+  <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="http://source.unsplash.com/750x326/?Superheros,Dark" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h1 style="font-size: 100px;">Yourflix</h1>
+          <p style="font-size:50px;">Tell us what you like.<br>Then we recommend you the best</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <div style="background-color: rgb(31, 30, 30);">
+  <footer class="page-footer font-small elegant-color-dark pt-4">
+
+    <!-- Footer Elements -->
+    <div class="container">
+
+      <!--Grid row-->
+      <div class="row">
+
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-12 mb-4">
+
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="http://source.unsplash.com/690x460/?movies,Dark,flash,google" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask elegant-color-dark"></div>
+            </a>
+          </div>
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4">
+
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="http://source.unsplash.com/690x460/?movies,Dark,?Superheros,365days" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask elegant-color-dark"></div>
+            </a>
+          </div>
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4">
+
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="http://source.unsplash.com/690x460/?Dark,transforms,Ironman,thor" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask elelgant-color-dark  "></div>
+            </a>
+          </div>
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-12 mb-4">
+
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="http://source.unsplash.com/690x460/?movies,Dark,flash" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask elegant-color-dark"></div>
+            </a>
+          </div>
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4">
+
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="http://source.unsplash.com/690x460/?movies,Dark,Batman,avengers" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask elegant-color-dark"></div>
+            </a>
+          </div>
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-2 col-md-6 mb-4">
+
+          <!--Image-->
+          <div class="view overlay z-depth-1-half">
+            <img src="http://source.unsplash.com/690x460/?movies,Dark,flash,netflix" class="img-fluid"
+              alt="">
+            <a href="">
+              <div class="mask elegant-color-dark"></div>
+            </a>
+          </div>
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3" style="color:white">© 2020 Copyright:
+      <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  </div>
+  <!-- Footer -->
+
+
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
