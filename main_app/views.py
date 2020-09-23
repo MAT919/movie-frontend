@@ -9,6 +9,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 #main_model
 def fuzzy_matching(mapper, fav_movie, verbose=True):    
@@ -72,7 +73,7 @@ def Merge(dict1, dict2):
 def index(request):
     return render(request, 'index.html')
 
-
+@login_required(login_url='/')
 def predictor(request):
     if request.method == 'POST':
         movie_name = request.POST.get('movie_name')
@@ -111,6 +112,7 @@ def predictor(request):
         return render(request,'predict.html',final_dict)
     else:
         return render(request,'movie.html')
+
 
 def signup(request):
 

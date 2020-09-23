@@ -1,21 +1,199 @@
-{% extends "base.html" %}
+<!doctype html>
+<html lang="en">
 
-{% block main %}
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<div class="container pt-5">
-    <div class="row justify-content-md-center">
-        <div class="col-md-4">
-            <h1>Movie Prediction</h1>
-            <form action="" method="POST" id="post-form">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="petal_width">Movie Name</label>
-                    <input type="text" name="movie_name" step="0.1" class="form-control" id="petal_width" placeholder="Enter Movie Name">
-                </div>
-                <button type="submit" value="Submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Submit</button>
-            </form>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Yourflix</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Contact Us</a>
+                </li>
+
+            </ul>
+            <a href='/logout' class="btn btn-danger">Log out</a>
         </div>
-    </div>
-</div>
+    </nav>
 
-{% endblock %}
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src=http://source.unsplash.com/750x326/?Superheros,Dark" class="d-block w-100" alt="...">
+                <div class="carousel-caption ">
+                    <div class="container pt-5">
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-4">
+                                <h1 style="font-size: 60px;">Yourflix</h1>
+                                <form action="" method="POST" id="post-form">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="petal_width">Movie Name</label>
+                                        <input type="text" name="movie_name" step="0.1" class="form-control"
+                                            id="petal_width" placeholder="Enter Movie Name">
+                                    </div>
+                                    <button type="submit" value="Submit" class="btn btn-danger" data-toggle="modal"
+                                        data-target="#exampleModal">Enter</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="background-color: rgb(31, 30, 30);">
+            <footer class="page-footer font-small elegant-color-dark pt-4">
+
+                <!-- Footer Elements -->
+                <div class="container">
+
+                    <!--Grid row-->
+                    <div class="row">
+
+                        <!--Grid column-->
+                        <div class="col-lg-2 col-md-12 mb-4">
+
+                            <!--Image-->
+                            <div class="view overlay z-depth-1-half">
+                                <img src="http://source.unsplash.com/690x460/?movies,Dark,flash,google"
+                                    class="img-fluid" alt="">
+                                <a href="">
+                                    <div class="mask elegant-color-dark"></div>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-lg-2 col-md-6 mb-4">
+
+                            <!--Image-->
+                            <div class="view overlay z-depth-1-half">
+                                <img src="http://source.unsplash.com/690x460/?movies,Dark,?Superheros,365days"
+                                    class="img-fluid" alt="">
+                                <a href="">
+                                    <div class="mask elegant-color-dark"></div>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-lg-2 col-md-6 mb-4">
+
+                            <!--Image-->
+                            <div class="view overlay z-depth-1-half">
+                                <img src="http://source.unsplash.com/690x460/?Dark,transforms,Ironman,thor"
+                                    class="img-fluid" alt="">
+                                <a href="">
+                                    <div class="mask elelgant-color-dark  "></div>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-lg-2 col-md-12 mb-4">
+
+                            <!--Image-->
+                            <div class="view overlay z-depth-1-half">
+                                <img src="http://source.unsplash.com/690x460/?movies,Dark,flash" class="img-fluid"
+                                    alt="">
+                                <a href="">
+                                    <div class="mask elegant-color-dark"></div>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-lg-2 col-md-6 mb-4">
+
+                            <!--Image-->
+                            <div class="view overlay z-depth-1-half">
+                                <img src="http://source.unsplash.com/690x460/?movies,Dark,Batman,avengers"
+                                    class="img-fluid" alt="">
+                                <a href="">
+                                    <div class="mask elegant-color-dark"></div>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!--Grid column-->
+
+                        <!--Grid column-->
+                        <div class="col-lg-2 col-md-6 mb-4">
+
+                            <!--Image-->
+                            <div class="view overlay z-depth-1-half">
+                                <img src="http://source.unsplash.com/690x460/?movies,Dark,flash,netflix"
+                                    class="img-fluid" alt="">
+                                <a href="">
+                                    <div class="mask elegant-color-dark"></div>
+                                </a>
+                            </div>
+
+                        </div>
+                        <!--Grid column-->
+
+                    </div>
+                    <!--Grid row-->
+
+                </div>
+                <!-- Footer Elements -->
+
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-3" style="color:white">© 2020 Copyright:
+                    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+                </div>
+                <!-- Copyright -->
+
+            </footer>
+        </div>
+        <!-- Footer -->
+
+
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
